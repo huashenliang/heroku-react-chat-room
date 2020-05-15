@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.15.3",
-    "password-generator": "^2.1.0"
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2",
+    "socket.io": "^2.3.0"
   },
   "scripts": {
     "start": "node index.js",
-    "heroku-postbuild": "cd client && yarn && yarn run build"
+    "heroku-postbuild": "cd client && npm && npm run build"
   }
 }
