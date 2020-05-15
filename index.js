@@ -3,6 +3,7 @@ const express = require('express');
 const socketio = require('socket.io');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000
+const path = require('path');
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 const router = require('./router');
@@ -12,7 +13,7 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(cors());
-
+app.use(router);
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 io.on('connection', (socket) => {
