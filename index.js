@@ -12,8 +12,8 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(cors());
+
 app.use(express.static(path.join(__dirname, 'client/build')));
-app.use(router);
 
 io.on('connection', (socket) => {
     console.log('We have new connection!');
