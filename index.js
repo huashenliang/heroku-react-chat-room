@@ -59,11 +59,6 @@ io.on('connection', (socket) => {
     })
 });
 
-// Always return the main index.html
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
-const port = process.env.PORT || 5000;
 
-app.listen(port);
+
 server.listen(PORT, () => console.log(`Server has started at ${PORT}.`));
