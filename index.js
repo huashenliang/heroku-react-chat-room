@@ -14,10 +14,14 @@ const io = socketio(server);
 
 app.use(cors());
 app.use(router);
-app.use(express.static(path.join(__dirname, 'client/build')));
+// Serve static assets
 
+app.use('public', express.static(path.join(__dirname, 'build')));
+app.use('public', express.static(path.join(__dirname, 'public')));
+
+// Always return the main index.html
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+  res.sendFile(path.resolve(__dirname, 'index.html'));
 });
 
 io.on('connection', (socket) => {
