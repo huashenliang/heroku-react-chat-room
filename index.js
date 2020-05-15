@@ -13,12 +13,10 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(cors());
-app.use(router);
+// app.use(router);
 
 // Serve static assets
 app.use('public', express.static(path.join(__dirname, 'build')));
-app.use('public', express.static(path.join(__dirname, 'public')));
-
 
 io.on('connection', (socket) => {
     console.log('We have new connection!');
