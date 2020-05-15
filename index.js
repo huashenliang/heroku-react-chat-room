@@ -14,7 +14,6 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(cors());
-app.use(router);
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -64,6 +63,6 @@ app.get('*', (req, res) => {
 });
 
 const port = process.env.PORT || 5000;
-app.listen(port);
+app.listen(3000);
 
-console.log(`Password generator listening on ${port}`);
+server.listen(PORT, () => console.log(`Server has started at ${PORT}.`));
