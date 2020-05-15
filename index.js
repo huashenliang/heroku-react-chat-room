@@ -16,6 +16,10 @@ app.use(cors());
 app.use(router);
 app.use(express.static(path.join(__dirname, 'client/build')));
 
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 io.on('connection', (socket) => {
     console.log('We have new connection!');
 
