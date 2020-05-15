@@ -8,11 +8,13 @@ const path = require('path');
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
+const router = require('./router');
 const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
 app.use(cors());
+app.use(router);
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
